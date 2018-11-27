@@ -76,8 +76,8 @@ WSGI_APPLICATION = 'shopping_list.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'shopping_list_db',
-        'USER': 'root',
+        'NAME': 'shopping_list_dba',
+        'USER': 'javi',
         'PASSWORD': 'Element!',
         'HOST': 'localhost',
         'PORT': ''
@@ -109,7 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Mexico_City'
 
 USE_I18N = True
 
