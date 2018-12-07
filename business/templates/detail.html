@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <p>{{ business.name }}</p>
+    <p>{{ business.hours }}</p>
+    <p>{{ business.address }}</p>
+    <p>{{ business.email }}</p>
+    <li><a href="{% url 'detail_comment' business.id %}">Ver comentarios</a></li>
+{% endblock %}

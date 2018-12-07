@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    {% if businesses %}
+        {% for business in businesses %}
+            <ul>
+                <li>{{ comment.comment }}</li>
+                <li>{{ comment.create_at }}</li>
+                <li>{{ comment.score }}</li>
+                <li><a href="{% url 'detail_comment' business.id %}">Ver comentarios</a></li>
+            </ul>
+        {% endfor %}
+    {% endif %}
+
+
+
+    <p>{{ comment.comment }}</p>
+    <p>{{ comment.create_at }}</p>
+    <p>{{ comment.score }}</p>
+    <li><a href="{% url 'detail_comment' business.id %}">Ver comentarios</a></li>
+{% endblock %}

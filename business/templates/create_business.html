@@ -1,0 +1,22 @@
+<!--
+    {% if form.errors %}
+    {% for field in errors %}
+    <ul>
+        {% for error in field.errors %}
+        <li>{{ error | escape }}</li>
+        {% endfor %}
+    </ul>
+    {% endfor %}
+{% endif %}
+   --> 
+
+
+{% block title %}Create Business{% endblock %}
+
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+{% endblock %}

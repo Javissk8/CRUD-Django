@@ -1,0 +1,9 @@
+{% block title %}Edit comment{% endblock %}
+
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Actualizar</button>
+    </form>
+{% endblock %}

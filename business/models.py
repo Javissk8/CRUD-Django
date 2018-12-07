@@ -17,7 +17,10 @@ class Category(models.Model):
     name = models.CharField(max_length=45, null = False)
 
     def __str__(self):
-        return 'name: {}'.format(self.name)
+        return '{}'.format(self.name)
+
+    class Meta:
+        verbose_name_plural = 'Categories'
 
 
 class Business(models.Model):
@@ -50,3 +53,6 @@ class CommentBusiness(models.Model):
 
     def __str__(self):
         return 'score: {}'.format(self.score)
+    
+    class Meta:
+        verbose_name_plural = 'Comment Business'
