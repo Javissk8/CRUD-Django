@@ -24,15 +24,15 @@ class Category(models.Model):
 
 
 class Business(models.Model):
-
     name = models.CharField(max_length=45, null = False)
     hours = models.CharField(max_length=45, null = False)
     email = models.EmailField(max_length=60, null = False)
     address = models.CharField(max_length=100, null = False, blank = False)
     last_modified = models.DateTimeField(auto_now =True)
     created_at = models.DateTimeField(auto_now_add = True)
-    comment_business = models.ManyToManyField(User, through='CommentBusiness')
+    comment_business = models.ManyToManyField(User, through='CommentBusiness', related_name='comment_business')
     categories = models.ManyToManyField(Category)
+    user = models.ForeignKey(User, on_delete = models.CASCADE)
 
     def __str__(self):
         return 'name: {}'.format(self.name)

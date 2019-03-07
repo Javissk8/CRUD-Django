@@ -1,22 +1,15 @@
 {% extends 'base.html' %}
-{% block title %}Home{% endblock %}
+{% block title %}Comentarios{% endblock %}
 
 {% block content %}
-    {% if businesses %}
-        {% for business in businesses %}
+    {% if comments %}
+        {% for comment in comments %}
             <ul>
                 <li>{{ comment.comment }}</li>
                 <li>{{ comment.create_at }}</li>
                 <li>{{ comment.score }}</li>
-                <li><a href="{% url 'detail_comment' business.id %}">Ver comentarios</a></li>
+                <a href="{% url 'create_comment' comment.business.id %}">agregar comentario</a>
             </ul>
         {% endfor %}
     {% endif %}
-
-
-
-    <p>{{ comment.comment }}</p>
-    <p>{{ comment.create_at }}</p>
-    <p>{{ comment.score }}</p>
-    <li><a href="{% url 'detail_comment' business.id %}">Ver comentarios</a></li>
 {% endblock %}

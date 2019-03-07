@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <h1 class="card-title">Hi {{ user.username }}!</h1>
+        <button type="button" class="btn btn-secondary"><a href="{% url 'logout' %}">logout</a></button>
+        {% if businesses %}
+            {% for business in businesses %}
+                <ul class='mt-3'>
+                    <li>{{business.name}}</li>
+                    <li>{{business.hours}}</li>
+                    <li><a href="{% url 'detail_business' business.id %}">Ver más</a></li>
+                </ul>
+            {% endfor %}
+        {% endif %}
+    {% else %}
+        <p>No has iniciado sesion, inicia sesion para revisar los lugares</p>
+        <a href="{% url 'login' %}">Iniciar sesion</a>
+    {% endif %}
+{% endblock %}

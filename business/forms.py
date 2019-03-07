@@ -26,7 +26,7 @@ class BusinessForm(forms.ModelForm):
             'hours': forms.TextInput ,
             'email': forms.TextInput,
             'address': forms.TextInput,
-            'categories': forms.CheckboxSelectMultiple ,
+            'categories': forms.SelectMultiple ,
         }
 
 class CommentBusinessForm(forms.ModelForm):
@@ -37,12 +37,10 @@ class CommentBusinessForm(forms.ModelForm):
         fields = [
             'comment',
             'score',
-            'business',
         ]
         labels = {
             'comment':'Agrega un comentario',
             'score':'Calificacion',
-            'business':'Establecimiento',
         }
 
 class PromoForm(forms.ModelForm):
@@ -53,17 +51,14 @@ class PromoForm(forms.ModelForm):
         fields = [
             'name',
             'description',
-            'business',
         ]
         labels = {
             'name':'Promo',
             'description':'Descripcion',
-            'business':'Establecimiento',
         }
         widgets = {
             'name': forms.TextInput ,
             'description': forms.TextInput,
-            'business': forms.CheckboxSelectMultiple ,
         }
 
 """ class UserForm(forms.ModelForm):

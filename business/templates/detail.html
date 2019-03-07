@@ -3,8 +3,10 @@
 
 {% block content %}
     <p>{{ business.name }}</p>
-    <p>{{ business.hours }}</p>
-    <p>{{ business.address }}</p>
-    <p>{{ business.email }}</p>
+    <p>Horarios: {{ business.hours }}</p>
+    <p>Direccion: {{ business.address }}</p>
+    <p>Email: {{ business.email }}</p>
     <li><a href="{% url 'detail_comment' business.id %}">Ver comentarios</a></li>
+    <li><a href="{% url 'create_comment' business.id %}">Agregar comentario</a></li>
+    <li><a href="{% url 'detail_promo' business.id %}">Ver promociones</a></li>
 {% endblock %}

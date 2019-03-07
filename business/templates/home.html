@@ -3,23 +3,36 @@
 
 {% block content %}
     {% if user.is_authenticated %}
-        Hi {{ user.username }}!
-        <p><a href="{% url 'logout' %}">logout</a></p>
-        <p><a href="{% url 'create_business' %}">Crear Establecimiento</a></p>
-        <a href="{% url 'create_business' %}" class="button">Go to Google</a>
+        <h1 class="card-title">Hi {{ user.username }}!</h1>
+        <div>
+            <p><a href="{% url 'logout' %}">logout</a></p>
+            <p><a href="{% url 'create_business' %}">Crear Establecimiento</a></p>
+        </div>
         {% if businesses %}
             {% for business in businesses %}
-                <ul>
-                    <li>{{business.name}}</li>
-                    <li>{{business.hours}}</li>
-                    <li><a href="{% url 'detail_business' business.id %}">Ver más</a></li>
-                    <li><a href="{% url 'delete_business' business.id %}">Borrar</a></li>
-                    <li><a href="business/edit/{{business.id}}">Editar</a></li>
-                </ul>
+
+            <div class="row">
+                    <div class="card mt-3" style="width: 18rem;">
+                      <div>
+                            <h5 class="card-title">{{business.name}}</h5>
+                            <p class="list-group-item">{{business.hours}}</p>
+                            <p class="list-group-item"><a href="{% url 'detail_business' business.id %}">Ver más</a></p>
+                            <p class="list-group-item"><a href="{% url 'delete_business' business.id %}">Borrar</a></p>
+                            <p class="list-group-item"><a href="business/edit/{{business.id}}">Editar</a></p>
+                      </div>
+                    </div>
+            </div>
+<!-- 
+                    <h5 class="card-title">{{business.name}}</h5>
+                    <p class="list-group-item">{{business.hours}}</p>
+                    <p class="list-group-item"><a href="{% url 'detail_business' business.id %}">Ver más</a></p>
+                    <p class="list-group-item"><a href="{% url 'delete_business' business.id %}">Borrar</a></p>
+                    <p class="list-group-item"><a href="business/edit/{{business.id}}">Editar</a></p> -->
+               
             {% endfor %}
         {% endif %}
     {% else %}
-        <p>You are not logged in</p>
-        <a href="{% url 'login' %}">login</a>
+        <p>No has iniciado sesion, inicia sesion para revisar los lugares</p>
+        <a href="{% url 'login' %}">Iniciar sesion</a>
     {% endif %}
 {% endblock %}
